@@ -18,3 +18,10 @@ criterion = "0.5.1"
 [[bench]]
 name = "benchmark"
 harness = false
+
+[profile.release]
+opt-level = "z"     # Optimize for size.
+lto = true          # Enable Link Time Optimization
+codegen-units = 1   # Reduce number of codegen units to increase optimizations.
+panic = "abort"     # Abort on panic
+strip = true        # Automatically strip symbols from the binary.
